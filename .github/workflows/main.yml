@@ -17,7 +17,15 @@ jobs:
       with:
         python-version: "3.10"
 
-    - name: Install system dependencies
+    - name: - name: Set up Android SDK
+      uses: android-actions/setup-android@v3
+
+    - name: Install Android SDK packages
+      run: |
+        sdkmanager --install \
+          "platform-tools" \
+          "platforms;android-34" \
+          "build-tools;34.0.0" system dependencies
       run: |
         sudo apt update
         sudo apt install -y \
